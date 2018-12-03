@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block meta %}
+    <title>{{ seo.index_title }}</title>
+    <meta name="description" content="{{ seo.index_description }}">
+{% endblock %}
+
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -28,7 +33,7 @@
             <div class="taglines-container">
                 <!-- container for banner taglines -->
 
-                <h1>{% lorem 4 w %}</h1>
+                <h1>{{ seo.index_h1 }}</h1>
                 <p>{% lorem 15 w %}</p>
                 <span>Momstyle</span>
             </div><!-- end container for banner taglines -->

@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block meta %}
+    <title>{{ seo.delivery_title }}</title>
+    <meta name="description" content="{{ seo.delivery_description }}">
 
 {% endblock %}
 
@@ -24,7 +26,7 @@
         <div class="page-header-caption">
             <!-- page header caption -->
 
-            <h1>Информация о доставке</h1>
+            <h1>{{ seo.delivery_h1 }}</h1>
             <p>{% lorem 25 w %}</p>
         </div><!-- end page header caption -->
     </section><!-- end page header -->

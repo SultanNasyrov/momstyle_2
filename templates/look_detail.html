@@ -1,3 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block meta %}
+    <title>{{ seo.cart_title }}</title>
+    <meta name="description" content="{{ seo.cart_description }}">
+{% endblock %}

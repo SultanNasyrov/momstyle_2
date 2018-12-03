@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block meta %}
-
+    <title>{{ seo.about_title }}</title>
+    <meta name="description" content="{{ seo.about_description }}" />
 {% endblock %}
 
 
@@ -25,7 +26,7 @@
         <div class="page-header-caption">
             <!-- page header caption -->
 
-            <h1>Lookboook</h1>
+            <h1>{{ seo.about_h1 }}</h1>
             <p>{% lorem 25 w %}</p>
         </div><!-- end page header caption -->
     </section><!-- end page header -->

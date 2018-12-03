@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block meta %}
+    <title>{{ seo.cart_title }}</title>
+    <meta name="description" content="{{ seo.cart_description }}">
 
 {% endblock %}
 
@@ -14,6 +16,11 @@
 
 
 {% block content %}
+    <section class="header">
+        <!-- page header section -->
+
+        <h1>{{ seo.cart_h1 }}</h1>
+    </section><!-- end page header section -->
     <section class="cart">
         <!-- cart items section -->
 
