@@ -36,6 +36,10 @@ body{
     color: white;
 }
 
+.brand{
+    max-height: 50px;
+}
+
 .cart-link-container img{
     height: 16px;
 }

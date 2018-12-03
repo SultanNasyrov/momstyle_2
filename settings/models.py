@@ -13,11 +13,29 @@ class Banner(models.Model):
         verbose_name_plural = 'Баннеры'
         ordering = ['position']
 
+    def __str__(self):
+        return 'Баннер {}'.format(self.position)
+
 
 class SiteMain(models.Model):
 
-    logo = models.ImageField(upload_to='logo/', verbose_name='Логотип')
-    map = models.TextField(default='', verbose_name='Код карты')
+    logo = models.ImageField(upload_to='logo/', verbose_name='Логотип', null=True, blank=True)
+
+    lookbook_header_image = models.ImageField(upload_to='header_images/', verbose_name='Изображение страницы лукбук',
+                                              null=True, blank=True)
+    delivery_header_image = models.ImageField(upload_to='header_images/', verbose_name='Изображение страницы доставка',
+                                              null=True, blank=True)
+    about_header_image = models.ImageField(upload_to='header_images/', verbose_name='Изображение страницы о нас',
+                                           null=True, blank=True)
+
+    map = models.TextField(default='', verbose_name='Код карты', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Настройки сайта'
+        verbose_name_plural = 'Настройки сайта'
+
+    def __str__(self):
+        return 'Настройки'
 
 
 class IconsPack(models.Model):
@@ -26,9 +44,9 @@ class IconsPack(models.Model):
     Contains all icons used in site
 
     """
-    navbar_vk = models.FileField(upload_to='icons/', verbose_name='Вконтакте(навигация)')
-    navbar_instagram = models.FileField(upload_to='icons/', verbose_name='Инстаграм(навигация)')
-    navbar_cart = models.FileField(upload_to='icons/', verbose_name='Корзина(навигация)')
+    navbar_vk = models.FileField(upload_to='icons/', verbose_name='Вконтакте(навигация)', null=True, blank=True)
+    navbar_instagram = models.FileField(upload_to='icons/', verbose_name='Инстаграм(навигация)', null=True, blank=True)
+    navbar_cart = models.FileField(upload_to='icons/', verbose_name='Корзина(навигация)', null=True, blank=True)
 
 
 class Seo(models.Model):
