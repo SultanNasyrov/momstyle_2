@@ -1,0 +1,34 @@
+.navigation{
+    background-color: grey;
+}
+
+/*content*/
+
+.products-section{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+
+    margin: 3rem 0;
+    padding: 1rem 3rem;
+}
+
+.categories-toolbar{
+    grid-column: span 3;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.products-container{
+    grid-column: span 9;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+.product{
+    grid-column: span 4;
+}

@@ -1,0 +1,144 @@
+
+/*banner section*/
+.banner{
+    position: relative;
+
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.images-container{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img{
+    width: 100vw;
+}
+
+.dnone{
+    display: none;
+}
+
+.banner-caption{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taglines-container{
+    position: relative;
+
+    width: 70vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.taglines-container h1{
+    font-family: 'Bebas bold', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+
+    z-index: 10;
+
+    color: white;
+}
+
+.taglines-container p{
+    padding: 0;
+    margin: 0;
+
+    z-index: 10;
+
+    font-family: 'Bebas book', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    text-align: center;
+
+    color: white;
+}
+
+.taglines-container span{
+    position: absolute;
+    top: 0; bottom: 0;
+
+    font-family: 'Bebas bold', sans-serif;
+    font-size: 15rem;
+    letter-spacing: 0.04rem;
+
+    color: rgba(241, 241, 241, 0.10);
+}
+
+
+/* general */
+
+.categories, .products, .looks{
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-container, .products-container, .looks-container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+
+    padding: 1rem 3rem;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+/* categories */
+
+.section-header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.category{
+    position: relative;
+
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+}
+
+/*products*/
+
+.product{
+    position: relative;
+
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*looks*/
+
+.look{
+    position: relative;
+
+    grid-column: span 3;
+}

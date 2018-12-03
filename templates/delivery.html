@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+
+{% endblock %}
+
+
+{% block css %}
+    <!-- delivery.css -->
+    <link rel="stylesheet" href="{% static 'css/delivery.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section class="page-header">
+        <!-- page header -->
+
+        <div class="image-container">
+            <!-- image container -->
+
+        </div><!-- end image container -->
+
+        <div class="page-header-caption">
+            <!-- page header caption -->
+
+            <h1>Информация о доставке</h1>
+            <p>{% lorem 25 w %}</p>
+        </div><!-- end page header caption -->
+    </section><!-- end page header -->
+
+
+    <section class="delivery-info">
+        <!-- delivery info container -->
+
+        <div>
+            {% lorem 5 p %}
+
+        </div><!-- end  -->
+    </section><!-- end delivery info container -->
+{% endblock %}
+
+
+{% block script %}
+    <!-- delivery.js -->
+    <script src="{% static 'js/delivery.js' %}"></script>
+{% endblock %}

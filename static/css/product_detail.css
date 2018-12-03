@@ -1,0 +1,43 @@
+.navigation{
+    background-color: grey;
+}
+
+.product-detail{
+    padding: 0 3rem;
+    margin: 4rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+
+/*images*/
+
+.images-column{
+    position: relative;
+    grid-column: span 4;
+}
+
+
+/*description*/
+
+.description-column{
+    grid-column: span 4;
+}
+
+
+/*order tools*/
+
+.order-tools-container{
+    grid-column: span 4;
+}
+
+.size{
+    border: 1px solid gray;
+}
+
+.chosen{
+    background-color: lightseagreen;
+    color: white;
+}

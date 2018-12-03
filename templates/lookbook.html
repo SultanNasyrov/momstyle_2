@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+    <title>LookBook</title>
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/lookbook.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <section class="page-header">
+        <!-- page header -->
+        
+        <div class="image-container">
+            <!-- image container -->
+
+        </div><!-- end image container -->
+
+        <div class="page-header-caption">
+            <!-- page header caption -->
+
+            <h1>Lookboook</h1>
+            <p>{% lorem 25 w %}</p>
+        </div><!-- end page header caption -->
+    </section><!-- end page header -->
+    
+    
+    <section class="looks">
+        <!-- looks section -->
+
+        {% for look in looks %}
+            <div class="look">
+                <!-- look instance -->
+                
+                <div class="look-image-container">
+                    <!-- look image container -->
+
+                    <img class="img-fluid" src="{{ look.images.first.image_mini.url }}" alt="">
+                </div><!-- end look image container -->
+            </div><!-- end look instance -->        
+        {% endfor %}
+        
+    </section><!-- end looks section -->
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/lookbook.js' %}"></script>
+{% endblock %}

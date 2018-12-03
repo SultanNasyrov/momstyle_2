@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+
+{% endblock %}
+
+
+{% block css %}
+    <!-- cart.css -->
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <section class="cart">
+        <!-- cart items section -->
+
+        <div class="cart-items-container">
+            <!-- cart items container -->
+
+            {% for item in cart_items %}
+                <div class="cart-item">
+                    <!-- cart item instance -->
+
+                    <a href="{% url 'product_detail' item.id %}" class="name">{{ item.name }}</a>
+                    <span class="size">{{ item.size }}</span>
+                    <span class="price">{{ item.price }}</span>
+                    <select change-url="{% url 'change-quantity' %}" name="quantity-select" class="quantity-select" value="{{ item.quantity }}">
+                        <option value="1" class="quantity-option">1</option>
+                        <option value="2" class="quantity-option">2</option>
+                        <option value="3" class="quantity-option">3</option>
+                        <option value="4" class="quantity-option">4</option>
+                        <option value="5" class="quantity-option">5</option>
+                        <option value="6" class="quantity-option">6</option>
+                        <option value="7" class="quantity-option">7</option>
+                        <option value="8" class="quantity-option">8</option>
+                        <option value="9" class="quantity-option">9</option>
+                        <option value="10" class="quantity-option">10</option>
+                    </select>
+                    <span class="subtotal">{{ item.subtotal }}</span>
+                    <a item-key="{{ item.cart_name }}" class="delete-item" href="{% url 'delete-item' %}">удалить</a>
+                </div><!-- end cart item instance -->
+            {% endfor %}
+
+        </div><!-- end cart items container -->
+
+
+        <div class="cart-info">
+            <!-- cart indo container -->
+            <span class="total">{{ total }}</span>
+            <a href="{% url 'clean' %}" class="clean">Очистить</a>
+            <a class="open-order-form" href="#">Оформить заказ</a>
+
+        </div><!-- end cart indo container -->
+
+    </section><!-- end cart items section -->
+
+    <div class="order-form-layout">
+        <!-- order form layout -->
+
+        <span class="close">x</span>
+
+        <div class="order-form">
+            <!-- order form container -->
+
+            <input type="text" class="name-input" placeholder="Ваше имя..." required>
+            <input type="text" class="phone-input" placeholder="Ваш номер..." required>
+
+            <a href="{% url 'make-order' %}" class="make-order">Отправить</a>
+
+        </div><!-- end order form container -->
+
+    </div><!-- end order form layout -->
+
+
+
+{% endblock %}
+
+
+{% block script %}
+    <!-- masked input plugin -->
+    <script src="{% static 'plugins/masked input/jquery.maskedinput.js' %}"></script>
+    <!-- cart.js -->
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

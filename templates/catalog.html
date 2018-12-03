@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="products-section">
+    <!-- products section -->
+
+    <div class="categories-toolbar">
+        <!-- categories toolbar -->
+            <a href="{% url 'catalog' 'all' %}">Все товары</a>
+        {% for category in categories %}
+            <a href="{% url 'catalog' category.id %}">{{ category.name }}</a>
+        {% endfor %}
+
+    </div><!-- end categories toolbar -->
+
+
+    <div class="products-container">
+        <!-- products container -->
+        {% for product in products %}
+            <div class="product">
+                <!-- product -->
+
+                <div class="product-image-container">
+                    <!-- product image container -->
+
+                    <img class="img-fluid" src="{{ product.images.first.image_mini.url }}" alt="">
+                </div><!-- end product image container -->
+
+                <div class="product-caption">
+                    <!-- product caption -->
+
+                    <span class="product-name">{{ product.name }}</span>
+                    <span class="product-category">{{ product.category }}</span>
+                    <span class="product-price">{{ product.price_sale }}</span>
+                </div><!-- end product caption -->
+            </div><!-- end product -->
+        {% endfor %}
+
+
+    </div><!-- end products container -->
+</section><!-- end products section -->
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/catalog.js' %}"></script>
+{% endblock %}

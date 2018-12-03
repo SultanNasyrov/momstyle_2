@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block meta %}
+
+{% endblock %}
+
+
+{% block css %}
+    <!-- product_detail.css -->
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+    <!-- image handling plugin css -->
+    <link rel="stylesheet" href="{% static 'plugins/Smoothproducts-master/css/smoothproducts.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <section class="product-detail">
+        <!-- product detail info section -->
+
+        <div class="images-column">
+            <!-- image column conatiner -->
+
+            <div class="sp-wrap">
+                <!-- smooth product plugin wrapper -->
+
+                {% for object in target.images.all %}
+                    <a href="{{ object.image_full.url }}"><img src="{{ object.image_mini.url }}" alt=""></a>
+                {% endfor %}
+            </div><!-- end smooth product plugin wrapper -->
+
+        </div><!-- end image column conatiner -->
+
+
+        <div class="description-column">
+            <!-- description column container -->
+
+            <a href="{% url 'catalog' target.category_id %}">{{ target.category }}</a>
+            <h2 class="name">{{ target.name }}</h2>
+            <span class="material">{{ target.material }}</span>
+            <span class="model-height">{{ target.models_height }}</span>
+
+            <div class="add-description">
+                <!-- additional description -->
+
+                <p>{{ target.description }}</p>
+            </div><!-- end additional description -->
+
+        </div><!-- end description column container -->
+    
+
+        <div class="order-tools-container">
+            <!-- order tools -->
+
+            <div class="price-container">
+                <!-- price container -->
+
+                <span class="prev_price">{{ target.price_no_sale }} руб.</span>
+                <span class="current_price">{{ target.price_sale }} руб.</span>
+                
+            </div><!-- end price container -->
+            
+            
+            <div class="sizes">
+                <!-- sizes container -->
+
+                <a href="#">Таблица Размеров</a>
+
+                <div class="size-buttons">
+                    <!-- size buttons container -->
+                    {% for size in target.size.all %}
+                        <button class="size">{{ size.name }}</button>
+                    {% endfor %}
+
+                </div><!-- end size buttons container -->
+
+            </div><!-- end sizes container -->
+
+            <div class="quantity-container">
+                <!-- quantity choose  -->
+
+                <select name="quantity" id="quantity-select">
+                    <option value="1" class="quantity-option">1</option>
+                    <option value="2" class="quantity-option">2</option>
+                    <option value="3" class="quantity-option">3</option>
+                    <option value="4" class="quantity-option">4</option>
+                    <option value="5" class="quantity-option">5</option>
+                    <option value="6" class="quantity-option">6</option>
+                    <option value="7" class="quantity-option">7</option>
+                    <option value="8" class="quantity-option">8</option>
+                    <option value="9" class="quantity-option">9</option>
+                    <option value="10" class="quantity-option">10</option>
+                </select>
+            </div><!-- end quantity choose  -->
+
+
+            <a class="add-item" href="{% url 'add-item' %}" product_id="{{ target.id }}">В корзину</a>
+            
+        </div><!-- end order tools -->
+    
+    </section><!-- end product detail info section -->
+
+{% endblock %}
+
+
+{% block script %}
+    <!-- product_detail.css -->
+    <script src="{% static 'js/product_detail.js' %}"></script>
+    <!-- product image handling plugin -->
+    <script src="{% static 'plugins/Smoothproducts-master/js/smoothproducts.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta %}
+
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="page-header">
+        <!-- page header -->
+
+        <div class="image-container">
+            <!-- image container -->
+
+        </div><!-- end image container -->
+
+        <div class="page-header-caption">
+            <!-- page header caption -->
+
+            <h1>Lookboook</h1>
+            <p>{% lorem 25 w %}</p>
+        </div><!-- end page header caption -->
+    </section><!-- end page header -->
+
+{% endblock %}
+
+
+
+{% block script %}
+    <!-- about.js -->
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

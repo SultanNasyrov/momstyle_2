@@ -1,0 +1,11 @@
+.page-header{
+    height: 400px;
+    margin-bottom: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: grey;
+    color: white;
+}

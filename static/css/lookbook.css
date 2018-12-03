@@ -1,0 +1,22 @@
+.page-header{
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: grey;
+    color: white;
+}
+
+.looks{
+    padding: 1rem 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+.look{
+    grid-column: span 2;
+}
