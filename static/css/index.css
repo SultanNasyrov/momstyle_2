@@ -4,6 +4,7 @@
     position: relative;
 
     height: 100vh;
+    width: 100vw;
 
     overflow: hidden;
 }
@@ -18,13 +19,19 @@
 }
 
 .banner img{
-    width: 100vw;
+    display: none;
+}
+
+.active-image{
+    display: flex;
 }
 
 .dnone{
     display: none;
 }
 
+
+/*banner caption*/
 .banner-caption{
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
@@ -32,6 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.21);
 }
 
 .taglines-container{
@@ -45,9 +54,9 @@
     align-items: center;
 }
 
-.taglines-container h1{
+.main-tag{
     font-family: 'Bebas bold', sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 0.06rem;
 
@@ -56,24 +65,9 @@
     color: white;
 }
 
-.taglines-container p{
-    padding: 0;
-    margin: 0;
-
-    z-index: 10;
-
-    font-family: 'Bebas book', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    text-align: center;
-
-    color: white;
-}
-
 .taglines-container span{
     position: absolute;
-    top: 0; bottom: 0;
+    top: 0;
 
     font-family: 'Bebas bold', sans-serif;
     font-size: 15rem;
@@ -82,6 +76,41 @@
     color: rgba(241, 241, 241, 0.10);
 }
 
+/*banner navigation*/
+.banner-navigation{
+    position: absolute;
+    bottom: 3rem;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    z-index: 10;
+}
+
+.image-buttons-container{
+    display: flex;
+}
+
+.image-button{
+    margin: 0 0.3rem;
+
+    height: 3rem;
+    width: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.image-button img{
+    display: block;
+}
 
 /* general */
 
@@ -90,7 +119,11 @@
     flex-direction: column;
 }
 
-.categories-container, .products-container, .looks-container{
+.detail-link, .detail-link:hover{
+    text-decoration: none;
+}
+
+.categories-container, .products-container{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 1rem;
@@ -99,6 +132,8 @@
 }
 
 .image-container{
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,22 +141,81 @@
     overflow: hidden;
 }
 
-/* categories */
+.image-caption{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* section header */
 .section-header-container{
+    padding: 3rem 0 1.5rem 0;
+
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.section-header{
+    font-family: 'Bebas bold', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.045rem;
+
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.header-par{
+    display: block;
+    width: 40vw;
+
+    font-family: 'Main light', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.51);
+}
+
+/*categories*/
 
 .category{
     position: relative;
 
-    grid-column: span 4;
+    grid-column: span 3;
     display: flex;
     flex-direction: column;
+}
+
+.category .image-container{
+    max-height: 400px;
+}
+
+.category-name{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.045rem;
+    line-height: 3rem;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.image-caption span{
+    font-family: "Main light", sans-serif;
+    font-size: 0.8rem;
+
+    color: white;
 }
 
 /*products*/
@@ -132,10 +226,46 @@
     grid-column: span 2;
     display: flex;
     flex-direction: column;
+}
 
+.loupe{
+    height: 16px;
+}
+
+.product-caption{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+    line-height: 2rem;
+
+    color: rgba(0, 0, 0, 0.51);
+}
+
+.product-price{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.51);
 }
 
 /*looks*/
+
+.looks-container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+
+    padding: 1rem 3rem;
+}
 
 .look{
     position: relative;

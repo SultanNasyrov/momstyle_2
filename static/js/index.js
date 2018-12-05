@@ -2,15 +2,37 @@ $(document).ready(function () {
 
     // carousel
     let bannerImages = $('.banner-image');
-    let firstBannerImage = bannerImages.first();
-    let imagesNumber = bannerImages.length;
+    $(bannerImages[0]).css('display', 'flex');
 
-    firstBannerImage.addClass('active');
-    firstBannerImage.siblings().addClass('dnone');
+    let category = $('.category');
 
-    function change_slide(current_slide, next_slide){
-        current_slide
-    };
+    function cardMouseEnter(card) {
+        let imageCaption = card.find('.image-caption');
+        let image = card.find('.main-img');
+        TweenMax.to(imageCaption, 0.5, {opacity: 1});
+        TweenMax.to(image, 3, {scale: 1.3});
+    }
 
+    function cardMouseLeave(card) {
+        let imageCaption = card.find('.image-caption');
+        let image = card.find('img');
+        TweenMax.to(imageCaption, 0.5, {opacity: 0});
+        TweenMax.to(image, 3, {scale: 1});
+    }
 
-})
+    category.mouseenter(function () {
+        cardMouseEnter($(this));
+    });
+    category.mouseleave(function () {
+        cardMouseLeave($(this));
+    });
+
+    let product = $('.product');
+    product.mouseenter(function () {
+        cardMouseEnter($(this));
+    });
+    product.mouseleave(function () {
+        cardMouseLeave($(this))
+    });
+
+});

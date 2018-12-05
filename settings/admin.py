@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Banner, IconsPack, SiteMain
+from .models import Banner, IconsPack, SiteMain, Seo
 
 
 @admin.register(Banner)
@@ -14,4 +14,9 @@ class IconsPack(admin.ModelAdmin):
 
 @admin.register(SiteMain)
 class SiteMainAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Seo)
+class Seo(admin.ModelAdmin):
     pass
