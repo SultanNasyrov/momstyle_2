@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (ProductSize, ProductCategory, Product, ProductImage,
-                     Look, LookImage, Order, OrderItem)
+                     Order, OrderItem, ContactPerson)
 
 
 @admin.register(ProductSize)
@@ -26,15 +26,6 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageTabular]
 
 
-class LookImageTabular(admin.TabularInline):
-    model = LookImage
-    extra = 0
-
-
-@admin.register(Look)
-class LookAdmin(admin.ModelAdmin):
-    inlines = [LookImageTabular]
-
 class OrderItemTabular(admin.TabularInline):
     model = OrderItem
     extra = 0
@@ -43,6 +34,11 @@ class OrderItemTabular(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemTabular]
+
+
+@admin.register(ContactPerson)
+class ContactPersonAdmin(admin.ModelAdmin):
+    pass
 
 
 

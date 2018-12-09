@@ -1,10 +1,9 @@
 $(document).ready(function () {
+    $(function() {
+        $('.slide').slide();
+	});
 
-    // carousel
-    let bannerImages = $('.banner-image');
-    $(bannerImages[0]).css('display', 'flex');
-
-    let category = $('.category');
+    const category = $('.category');
 
     function cardMouseEnter(card) {
         let imageCaption = card.find('.image-caption');
@@ -27,7 +26,7 @@ $(document).ready(function () {
         cardMouseLeave($(this));
     });
 
-    let product = $('.product');
+    const product = $('.product');
     product.mouseenter(function () {
         cardMouseEnter($(this));
     });
@@ -35,4 +34,20 @@ $(document).ready(function () {
         cardMouseLeave($(this))
     });
 
+    const look = $('.look');
+    look.mouseenter(function () {
+        cardMouseEnter($(this))
+    });
+    look.mouseleave(function () {
+        cardMouseLeave($(this))
+    });
+
+    const catalogBtn = $('.catalog-btn');
+    catalogBtn.mouseenter(function () {
+        TweenMax.to($(this), 0.5, {backgroundColor: 'rgba(0, 0, 0, 0.6)'});
+    });
+
+    catalogBtn.mouseleave(function () {
+        TweenMax.to($(this), 0.5, {backgroundColor: 'rgba(0, 0, 0, 0.3)'});
+    });
 });

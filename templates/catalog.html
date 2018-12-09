@@ -21,9 +21,9 @@
 
     <div class="categories-toolbar">
         <!-- categories toolbar -->
-            <a href="{% url 'catalog' 'all' %}">Все товары</a>
+            <a class="category-link all-products" href="{% url 'catalog' 'all' %}">Все товары</a>
         {% for category in categories %}
-            <a href="{% url 'catalog' category.id %}">{{ category.name }}</a>
+            <a class="category-link" href="{% url 'catalog' category.id %}">{{ category.name }}</a>
         {% endfor %}
 
     </div><!-- end categories toolbar -->
@@ -42,7 +42,7 @@
                         <div class="image-caption">
                             <!-- image caption container -->
 
-                            <img class="loupe" src="{{ icons.product_loupe.url }}" alt="">
+                            <span>Смотреть >></span>
                         </div><!-- end image caption container -->
                     </div><!-- end product-image-container -->
 

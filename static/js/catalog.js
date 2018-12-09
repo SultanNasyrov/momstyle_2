@@ -13,11 +13,13 @@ $(document).ready(function () {
         TweenMax.to(image, 3, {scale: 1});
     }
 
-    let product = $('.product');
+    const product = $('.product');
     product.mouseenter(function () {
         cardMouseEnter($(this));
     });
     product.mouseleave(function () {
         cardMouseLeave($(this))
     });
+
+
 });

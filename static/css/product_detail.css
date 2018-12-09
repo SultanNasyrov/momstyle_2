@@ -23,21 +23,274 @@
 /*description*/
 
 .description-column{
-    grid-column: span 4;
+    grid-column: span 8;
+
+    display: flex;
+    flex-direction: column;
 }
 
+.category, .category:hover{
+    font-family: "Main light", sans-serif;
+    font-size: 0.8rem;
 
-/*order tools*/
+    color: rgba(0, 0, 0, 0.41);
+}
+
+.name{
+    font-family: 'Bebas bold', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.045rem;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.61);
+}
+
+.help-text{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04rem;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.41);
+}
+
+.material, .model-height{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04rem;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.6);
+}
 
 .order-tools-container{
-    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
 }
 
-.size{
-    border: 1px solid gray;
+.price-container{
+    margin: 1rem 0;
+}
+
+.current_price{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.045rem;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.make-order{
+    display: flex;
+}
+
+.size-buttons{
+    display: flex;
 }
 
 .chosen{
-    background-color: lightseagreen;
+    background-color: rgba(31, 200, 138, 0.65) !important;
+}
+
+.size{
+    margin-right: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    border-radius: 3px;
+    border: none;
+
+    font-family: 'Main narrow', sans-serif;
+
+    background-color: rgba(0, 0, 0, 0.11);
+    color: rgba(0, 0, 0, 0.61);
+}
+
+#quantity-select{
+    height: 3rem;
+}
+
+.sizes-table-link{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.add-item, .add-item:hover{
+    margin: 2rem 0;
+    padding: 0.5rem 1rem;
+
+    width: 11rem;
+    height: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Main narrow', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    border-radius: 3px;
+
+    background-color: rgba(0, 0, 0, 0.61);
     color: white;
 }
+
+.description{
+    display: block;
+    width: 30rem;
+
+    font-family: 'Main light', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.suggestions-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header{
+    padding: 1rem 3rem;
+}
+
+.section-header h2{
+    font-family: 'Bebas book', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.045rem;
+
+    color: rgba(0, 0, 0, 0.61);
+}
+
+.suggestions{
+    padding: 1rem 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+.product{
+    position: relative;
+
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-link, .detail-link:hover{
+    text-decoration: none;
+}
+
+
+.image-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.image-caption{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.image-caption span{
+    font-family: "Main light", sans-serif;
+    font-size: 0.8rem;
+
+    color: white;
+}
+
+.product-caption{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+    line-height: 2rem;
+
+    color: rgba(0, 0, 0, 0.51);
+}
+
+.product-price{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.51);
+}
+
+.sizes-table-layout{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: none;
+    
+    z-index: 100;
+
+    background-color: black;
+}
+
+.sizes-content-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    z-index: 150;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close, .close:hover{
+    position: absolute;
+    top: 1rem; right: 3rem;
+
+    color: #cdcdcd;
+}
+
+.table-image{
+    width: 70%;
+    height: 80%;
+
+    overflow: hidden;
+}
+
+
+
+
+
+
+

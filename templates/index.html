@@ -9,10 +9,8 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.css"/>
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick-theme.css"/>
+    <!-- slide css -->
+    <link rel="stylesheet" href="{% static 'plugins/slide/jquery.slide.css' %}">
 {% endblock %}
 
 
@@ -21,12 +19,15 @@
     <section class="banner">
         <!-- banner section -->
 
-        <div class="images-container">
+        <div class="images-container slide">
             <!-- banner images container -->
 
-            {% for banner in banners %}
-                <img class="banner-image" src="{{ banner.image.url }}" alt="">
-            {% endfor %}
+            <ul>
+                {% for banner in banners %}
+                    <li data-bg="{{ banner.image.url }}"></li>
+                {% endfor %}
+
+            </ul>
 
         </div><!-- end banner images container -->
 
@@ -38,27 +39,16 @@
                 <!-- container for banner taglines -->
 
                 <h1 class="main-tag">{{ seo.index_h1 }}</h1>
+                <h2 class="second-tag">Будь красива в любом положении</h2>
+
+                <div class="decorative-text">
+                    <!-- decorative text container -->
+                    <span>MOMSTYLE</span>
+                </div><!-- end decorative text container -->
+
             </div><!-- end container for banner taglines -->
+
         </div><!-- end banner caption container -->
-
-
-        <div class="banner-navigation">
-            <!-- banner navigation container -->
-
-            <div class="image-buttons-container">
-                <!-- icons container -->
-                
-                {% for banner in banners %}
-                    <div class="image-button">
-                        <!-- image button -->
-
-                        <img position="{{ banner.position }}" class="img-fluid" src="{{ banner.image_mini.url }}" alt="">
-                    </div><!-- end image button -->                
-                {% endfor %}
-                
-            </div><!-- end icons container -->
-        
-        </div><!-- end banner navigation container -->
 
     </section><!-- end banner section -->
 
@@ -135,7 +125,7 @@
                             <div class="image-caption">
                                 <!-- image caption container -->
 
-                                <img class="loupe" src="{{ icons.product_loupe.url }}" alt="">
+                                <span>Смотреть >></span>
                             </div><!-- end image caption container -->
                         </div><!-- end product-image-container -->
 
@@ -152,49 +142,20 @@
 
         </div><!-- end products container -->
 
+
+        <div class="catalog-btn-container">
+            <!-- catalog button container -->
+
+            <a class="catalog-btn" href="{% url 'catalog' 'all' %}">Все товары</a>
+        </div><!-- end catalog button container -->
+
     </section><!-- end products section -->
-
-
-    <section class="looks">
-        <!-- looks section -->
-
-        <div class="section-header-container">
-            <!-- looks section header -->
-
-            <h2 class="section-header">{{ main.look_h2 }}</h2>
-            <p class="header-par">{{ main.look_par }}</p>
-        </div><!-- end looks section header -->
-
-
-        <div class="looks-container">
-            <!-- looks container -->
-
-            {% for look in looks %}
-                <div class="look">
-                    <!-- look instance -->
-
-                    <a href="{{ look.get_absolute_url }}" class="detail-link">
-
-                        <div class="image-container">
-                        <!-- look image container -->
-
-                            <img class="img-fluid main-img" src="{{ look.images.first.image_mini.url }}" alt="">
-                        </div><!-- end look image container -->
-
-                    </a>
-
-                </div><!-- end look instance -->
-            {% endfor %}
-
-        </div><!-- end looks container -->
-
-    </section><!-- end looks section -->
 
 
 {% endblock %}
 
 
 {% block script %}
-    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.min.js"></script>
+    <script src="{% static 'plugins/slide/jquery.slide.min.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

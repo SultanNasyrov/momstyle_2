@@ -76,32 +76,6 @@ class ProductImage(models.Model):
         return 'Изображение товара ' + str(self.id)
 
 
-class Look(models.Model):
-    """"""
-    name = models.CharField(max_length=500, default='', verbose_name='Название')
-    products = models.ManyToManyField(Product, verbose_name='Товары на изображении')
-    description = models.TextField(default='', verbose_name='Описание')
-
-    class Meta:
-        verbose_name = 'Лук'
-        verbose_name_plural = 'Луки'
-        ordering = ['id']
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('look_detail', kwargs={'look_id': self.id})
-
-
-class LookImage(models.Model):
-    """"""
-    look = models.ForeignKey(Look, on_delete=models.CASCADE, related_name='images',
-                             related_query_name='images', verbose_name='Лук')
-    image = models.ImageField(upload_to='looks/', blank=True, null=True, verbose_name='Изображение')
-    image_mini = models.ImageField(upload_to='looks/', blank=True, null=True, verbose_name='Изображение(миниатюра)')
-
-
 class Order(models.Model):
     processed = models.BooleanField(default=False, verbose_name='Обработан')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
@@ -125,3 +99,18 @@ class OrderItem(models.Model):
     price = models.PositiveIntegerField(default=0, verbose_name='Цена')
     quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
     subtotal = models.PositiveIntegerField(default=0, verbose_name='Сумма')
+
+
+
+class ContactPerson(models.Model):
+    processed = models.BooleanField(default=False, verbose_name='Перезвонили')
+    name = models.CharField(max_length=200, null=True, blank=True, verbose_name='Имя')
+    phone = models.CharField(max_length=200, null=True, blank=True, verbose_name='Номер Телефона')
+    date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания заявки')
+
+    class Meta:
+        verbose_name = 'Заявка связаться с нами'
+        verbose_name_plural = 'Заявки связаться с нами'
+
+    def __str__(self):
+        return self.name

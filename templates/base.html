@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+
+
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
     {% block meta %}
 
     {% endblock %}
+
 
     <!-- base.css -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -26,7 +31,7 @@
             font-family: 'Bebas book';
             src: url({% static 'fonts/BebasNeue Book.otf' %});
         }
-        {# main fonts #}
+        {# main font #}
         @font-face {
             font-family: 'Main narrow';
             src: url({% static 'fonts/PTN77F_W.woff' %});
@@ -57,14 +62,11 @@
         </a>
     </div><!-- end brand -->
 
-    <!-- test change 2 -->
-
 
     <div class="page-links">
         <!-- page links container -->
         <a href="{% url 'index' %}" class="navigation-link">Главная</a>
-        <a href="{% url 'catalog' 'all' %}" class="navigation-link">Коллекция</a>
-        <a href="{% url 'lookbook' %}" class="navigation-link">Lookbook</a>
+        <a href="{% url 'catalog' 'all' %}" class="navigation-link">Каталог</a>
         <a href="{% url 'delivery' %}" class="navigation-link">Доставка</a>
         <a href="{% url 'about' %}" class="navigation-link">О нас</a>
     </div><!-- end page links container -->
@@ -75,12 +77,11 @@
 
         <!-- cart icon -->
         <a href="{% url 'cart' %}">
-            <img src="{{ icons.navbar_cart.url }}" alt="">
+            <img src="{{ icons.cart.url }}" alt="">
             <span class="cart-items-number">{{ cart_items_number }}</span>
         </a>
 
     </div><!-- end car links container -->
-
 
 </section><!-- end navigation panel -->
 
@@ -91,10 +92,87 @@
 
 
 {% block footer %}
+
     <section class="footer">
         <!-- footer section -->
 
-        footer
+        <div class="contacts-column">
+            <!-- contacts columns container -->
+
+            <span class="column-header">Контакты:</span>
+
+            <div class="contact-line">
+                <!-- phone line -->
+
+                <img class="footer-icon" src="{{ icons.footer_phone.url }}" alt="">
+                {{ main.phone_number }}
+            </div><!-- end phone line -->
+
+
+            <div class="contact-line">
+                <!-- email line -->
+
+                <img class="footer-icon" src="{{ icons.footer_email.url }}" alt="">
+                {{ main.email }}
+            </div><!-- end phone line -->
+
+
+            <div class="contact-line">
+                <!-- address line -->
+
+                <img class="footer-icon" src="{{ icons.footer_address.url }}" alt="">
+                {{ main.address }}
+            </div><!-- end phone line -->
+
+
+            <div class="contact-line">
+                <!-- working hours line -->
+
+                <img class="footer-icon" src="{{ icons.footer_time.url }}" alt="">
+                {{ main.working_hours }}
+            </div><!-- end phone line -->
+
+        </div><!-- end contacts columns container -->
+
+
+        <div class="links-column">
+            <!-- links column container -->
+
+            <span class="column-header">Ссылки:</span>
+
+            <a href="{% url 'index' %}" class="footer-link">- Главная</a>
+            <a href="{% url 'catalog' 'all' %}" class="footer-link">- Каталог</a>
+            <a href="{% url 'delivery' %}" class="footer-link">- Доставка</a>
+            <a href="{% url 'about' %}" class="footer-link">- О нас</a>
+
+        </div><!-- end links column container -->
+
+
+        <div class="contact-us-column">
+            <!-- contact us column -->
+
+            <span class="column-header">Связаться с нами:</span>
+
+            <form action="{% url 'contact-us' %}" class="contact-us">
+                <input type="text" class="contact-name" placeholder="Ваше имя" required>
+                <input type="text" class="contact-phone" placeholder="+7 (900) 000-0000" required>
+                <button type="submit" class="contact-us-btn">Отправить</button>
+            </form>
+
+        </div><!-- end contact us column -->
+    
+    
+        <div class="up-btn-container">
+            <!-- up button container -->
+            
+            <div class="up">
+                <!-- up button -->
+
+                <img src="{{ icons.up.url }}" alt="Иконка вверх">
+            </div><!-- end up button -->
+
+        </div><!-- end up button container -->
+
     </section><!-- end footer section -->
 
 {% endblock %}
@@ -104,8 +182,12 @@
 <script src="{% static 'plugins/jquery.js' %}"></script>
 <!-- TweenMax -->
 <script src="{% static 'plugins/gsap/TweenMax.min.js' %}"></script>
+<!-- gsap scroll to plugin -->
+<script src="{% static 'plugins/gsap/plugins/ScrollToPlugin.min.js' %}"></script>
 <!-- ajax setup -->
 <script src="{% static 'js/ajax_setup.js' %}"></script>
+<!-- input mask plugin -->
+<script src="{% static 'plugins/masked input/jquery.maskedinput.js' %}"></script>
 <!-- base.js -->
 <script src="{% static 'js/base.js' %}"></script>
 
@@ -115,6 +197,4 @@
 
 
 </body>
-
-
 </html>
