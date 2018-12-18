@@ -37,7 +37,9 @@ $(document).ready(function () {
             success: function (response) {
                 console.log("success");
                 item.remove();
-                itemsNumber.text(response['items'])
+                itemsNumber.text(response['items']);
+                total.text(response['total']);
+                console.log(response['total']);
             },
             error: function () {
                 console.log('Error');

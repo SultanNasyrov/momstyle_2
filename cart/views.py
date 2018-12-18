@@ -34,7 +34,8 @@ def delete_item(request):
         key = request.POST['key']
         cart.delete_item(key)
         response = {
-        'items': cart.count_items()
+            'items': cart.count_items(),
+            'total': cart.total()
         }
         return HttpResponse(json.dumps(response))
     else:

@@ -1,6 +1,6 @@
 from django.shortcuts import render, Http404, HttpResponse
 from django.views.generic import View
-from settings.models import Banner
+from settings.models import Banner, DeliveryPaymentInfo
 from .models import ProductCategory, Product, ContactPerson
 
 import json
@@ -45,15 +45,9 @@ class Catalog(View):
 
 class Delivery(View):
     def get(self, request):
-        context = {}
+        info = DeliveryPaymentInfo.objects.all()
+        context = {'info': info}
         return render(request, 'delivery.html', context)
-
-
-class About(View):
-    def get(self, request):
-        context = {}
-        return render(request, 'about.html', context)
-
 
 def product_detail(request, product_id):
     context = {}

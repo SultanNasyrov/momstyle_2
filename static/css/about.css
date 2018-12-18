@@ -43,3 +43,111 @@
     text-transform: uppercase;
     letter-spacing: 0.045rem;
 }
+
+.posts{
+    padding: 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+.post{
+    position: relative;
+
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.post .image-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.post .image-caption{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.post a{
+    text-decoration: none;
+}
+
+.post-caption .name{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 2rem;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.post-caption p{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.post .image-caption span{
+    font-family: "Main light", sans-serif;
+    font-size: 0.8rem;
+
+    color: white;
+}
+
+.ext{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ext span{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.like{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Main light', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.like img{
+    height: 12px;
+    margin-right: 0.1rem;
+}
+
+
+
+
+
+

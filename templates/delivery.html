@@ -33,14 +33,44 @@
     </section><!-- end page header -->
 
 
-    <section class="delivery-info">
+    <section class="delivery-info info-section">
         <!-- delivery info container -->
-
-        <div>
-            {% lorem 5 p %}
-
-        </div><!-- end  -->
+        <div class="section-header">
+            <h2>О доставке</h2>
+        </div>
+    
+        <div class="section-content">
+            {% for obj in info %}
+                {% if obj.type == 'd' %}
+                    <div class="info">
+                        <img src="{{ obj.image.url }}" alt="">
+                        <span>{{ obj.title }}</span>
+                        <p>{{ obj.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </section><!-- end delivery info container -->
+
+
+    <section class="payment-info info-section">
+        <div class="section-header">
+            <h2>Об оплате</h2>
+        </div>
+
+        <div class="section-content">
+            {% for obj in info %}
+                {% if obj.type == 'p' %}
+                    <div class="info">
+                        <img src="{{ obj.image.url }}" alt="">
+                        <span>{{ obj.title }}</span>
+                        <p>{{ obj.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
 {% endblock %}
 
 

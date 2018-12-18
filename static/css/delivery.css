@@ -44,3 +44,63 @@
     text-transform: uppercase;
     letter-spacing: 0.045rem;
 }
+
+.info-section{
+    padding: 3rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-header{
+    margin: 1rem 0;
+}
+
+.section-header h2{
+    font-family: 'Bebas book', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.61);
+}
+
+.section-content{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+.info{
+    grid-column: span 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info img{
+    height: 64px;
+}
+
+.info span{
+    font-family: 'Main narrow', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.045rem;
+    line-height: 2rem;
+
+    color: rgba(0, 0, 0, 0.61);
+}
+
+.info p{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.045rem;
+
+    color: rgba(0, 0, 0, 0.4);
+}

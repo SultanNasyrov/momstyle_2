@@ -19,9 +19,9 @@ class ProductImageTabular(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category','price_no_sale', 'price_sale', 'material', 'display']
+    list_display = ['name', 'category','price', 'material', 'display']
     list_editable = ['display']
-    list_filter = ['category', 'price_sale', 'display']
+    list_filter = ['category', 'price', 'display']
     search_fields = ['name', 'material']
     inlines = [ProductImageTabular]
 
@@ -29,16 +29,20 @@ class ProductAdmin(admin.ModelAdmin):
 class OrderItemTabular(admin.TabularInline):
     model = OrderItem
     extra = 0
+    readonly_fields = ['name', 'size', 'price', 'quantity', 'subtotal']
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemTabular]
+    list_display = ['customer', 'phone_number', 'date', 'processed']
+    list_filter = ['processed', 'date']
+    search_fields = ['name']
 
 
 @admin.register(ContactPerson)
 class ContactPersonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'phone', 'date', 'processed']
 
 
 

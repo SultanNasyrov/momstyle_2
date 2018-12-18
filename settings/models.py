@@ -1,11 +1,28 @@
 from django.db import models
 
 
+class DeliveryPaymentInfo(models.Model):
+    types = (
+        ('d', 'Информация о доставке'),
+        ('p', 'Информация об оплате')
+    )
+    type = models.CharField(max_length=20, choices=types, null=True, blank=True, verbose_name='Тип')
+    title = models.CharField(max_length=200, blank=True, null=True, verbose_name='Заголовок')
+    image = models.FileField(upload_to='delivery/', verbose_name='Иконка', help_text='В формате svg', blank=True, null=True)
+    description = models.CharField(max_length=500, null=True, blank=True, verbose_name='Описание')
+
+    class Meta:
+        verbose_name = 'Информация о доставке и оплате'
+        verbose_name_plural = 'Информация о доставке и оплате'
+
+    def __str__(self):
+        return self.title
+
+
 class Banner(models.Model):
     """Contains images for banner app on index page of the site"""
 
     image = models.ImageField(upload_to='banner/', verbose_name='Изображение, размер ~ 300 КБ')
-    image_mini = models.ImageField(upload_to='banner/', verbose_name='Изображение(миниатюра), размер ~ 10 КБ')
     position = models.PositiveSmallIntegerField(default=1, verbose_name='Позиция')
 
     class Meta:
@@ -57,6 +74,9 @@ class IconsPack(models.Model):
     cart = models.FileField(upload_to='icons/', verbose_name='Корзина', null=True, blank=True)
     up = models.FileField(upload_to='icons/', verbose_name='Вверх', null=True, blank=True)
 
+    like = models.FileField(upload_to='icons/', verbose_name='Сердечко(like)', null=True, blank=True)
+
+
     # footer
     footer_phone = models.FileField(upload_to='icons/', null=True, blank=True, verbose_name='Телефон(футер)')
     footer_email = models.FileField(upload_to='icons/', null=True, blank=True, verbose_name='Email(футер)')
@@ -73,22 +93,29 @@ class IconsPack(models.Model):
 
 class Seo(models.Model):
 
-    index_title = models.CharField(max_length=80, verbose_name='Title(Главная страница)', null=True, blank=True)
-    index_description = models.CharField(max_length=200, verbose_name='Description(Главная страница)', null=True, blank=True)
-    index_h1 = models.CharField(max_length=500, verbose_name='h1(Главная страница)', null=True, blank=True)
-    catalog_title = models.CharField(max_length=80, verbose_name='Title(Каталог)', null=True, blank=True)
-    catalog_description = models.CharField(max_length=200, verbose_name='Description(Каталог)', null=True, blank=True)
-    product_title = models.CharField(max_length=80, verbose_name='Title(Главная страница)', null=True, blank=True)
-    product_description = models.CharField(max_length=200, verbose_name='Description(Главная страница)', null=True, blank=True)
-    delivery_title = models.CharField(max_length=80, verbose_name='Title(Доставка)', null=True, blank=True)
-    delivery_description = models.CharField(max_length=200, verbose_name='Description(Доставка)', null=True, blank=True)
-    delivery_h1 = models.CharField(max_length=500, verbose_name='h1(Доставка)', null=True, blank=True)
-    about_title = models.CharField(max_length=80, verbose_name='Title(О нас)', null=True, blank=True)
-    about_description = models.CharField(max_length=200, verbose_name='Description(О нас)', null=True, blank=True)
-    about_h1 = models.CharField(max_length=500, verbose_name='h1(О нас)', null=True, blank=True)
-    cart_title = models.CharField(max_length=80, verbose_name='Title(Корзина)', null=True, blank=True)
-    cart_description = models.CharField(max_length=200, verbose_name='Description(Корзина)', null=True, blank=True)
-    cart_h1 = models.CharField(max_length=500, verbose_name='h1(Корзина)', null=True, blank=True)
+    index_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True)
+    index_description = models.CharField(max_length=200, verbose_name='Description',
+                                         null=True, blank=True)
+    index_h1 = models.CharField(max_length=500, verbose_name='h1', null=True, blank=True)
+    catalog_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True)
+    catalog_description = models.CharField(max_length=200, verbose_name='Description', null=True, blank=True)
+    product_title = models.CharField(max_length=80, verbose_name='Title',
+                                     null=True, blank=True, help_text='Текст появится после названия товара')
+    product_description = models.CharField(max_length=200, verbose_name='Description',
+                                           null=True, blank=True, help_text='Появится после названия товара')
+    delivery_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True)
+    delivery_description = models.CharField(max_length=200, verbose_name='Description', null=True, blank=True)
+    delivery_h1 = models.CharField(max_length=500, verbose_name='h1', null=True, blank=True)
+    about_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True)
+    about_description = models.CharField(max_length=200, verbose_name='Description', null=True, blank=True)
+    about_h1 = models.CharField(max_length=500, verbose_name='h1', null=True, blank=True)
+    post_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True,
+                                  help_text='Текст появится после названия поста' )
+    post_description = models.CharField(max_length=200, verbose_name='Description', null=True, blank=True,
+                                        help_text = 'Текст появится после названия товара')
+    cart_title = models.CharField(max_length=80, verbose_name='Title', null=True, blank=True)
+    cart_description = models.CharField(max_length=200, verbose_name='Description', null=True, blank=True)
+    cart_h1 = models.CharField(max_length=500, verbose_name='h1', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Настройки SEO'

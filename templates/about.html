@@ -30,7 +30,48 @@
 
             <h1>{{ seo.about_h1 }}</h1>
         </div><!-- end page header caption -->
+
     </section><!-- end page header -->
+
+
+    <section class="posts">
+        {% for post in posts %}
+            <div class="post">
+
+                <a href="{{ post.get_absolute_url }}">
+
+                    <div class="image-container">
+                        <!-- post-image-container -->
+
+                            <img class="img-fluid main-img" src="{{ post.image.url }}" alt="">
+                            <div class="image-caption">
+                                <!-- image caption container -->
+
+                                <span>Читать >></span>
+                            </div><!-- end image caption container -->
+
+                    </div><!-- end product-image-container -->
+
+                    <div class="post-caption">
+                        <span class="name">{{ post.name }}</span>
+
+                        <p class="short-par">{{ post.paragraphs.all.first.text }}</p>
+
+                        <div class="ext">
+                            <span>{{ post.creation_date }}</span>
+                            <a href="{% url 'like' %}" class="like" post-id="{{ post.id }}">
+                                <img src="{{ icons.like.url }}" alt="">
+                                <span class="likes-number">{{ post.likes_number }}</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+        {% endfor %}
+
+    </section>
 
 {% endblock %}
 

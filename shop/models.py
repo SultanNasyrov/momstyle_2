@@ -40,8 +40,7 @@ class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True, verbose_name='Категория')
     size = models.ManyToManyField(ProductSize, related_name='sizes', related_query_name='sizes', verbose_name='Размеры')
 
-    price_no_sale = models.PositiveSmallIntegerField(default=0, verbose_name='Цена(без скидки)')
-    price_sale = models.PositiveSmallIntegerField(default=0, verbose_name='Цена(со скидкой)')
+    price = models.PositiveSmallIntegerField(default=0, verbose_name='Цена')
 
     material = models.CharField(max_length=200, default='', null=True, blank=True, verbose_name='Состав')
     models_height = models.PositiveSmallIntegerField(default=165, verbose_name='Рост модели')
@@ -111,6 +110,7 @@ class ContactPerson(models.Model):
     class Meta:
         verbose_name = 'Заявка связаться с нами'
         verbose_name_plural = 'Заявки связаться с нами'
+        ordering = ['-date']
 
     def __str__(self):
         return self.name

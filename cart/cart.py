@@ -4,12 +4,12 @@ class CartItem(object):
     """Cart Item """
     def __init__(self, product_id, size, quantity):
         product = Product.objects.get(id=product_id)
-        subtotal = product.price_sale * int(quantity)
+        subtotal = product.price * int(quantity)
         self.key = product.name + ' ({})'.format(size)
         self.name = product.name
         self.quantity = int(quantity)
         self.size = str(size)
-        self.price = int(product.price_sale)
+        self.price = int(product.price)
         self.id = product.id
         self.subtotal = subtotal
 
