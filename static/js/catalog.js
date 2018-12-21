@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    // variables
+    const product = $('.product');
+
+    // card hover effect functions
     function cardMouseEnter(card) {
         let imageCaption = card.find('.image-caption');
         let image = card.find('.main-img');
@@ -13,7 +17,7 @@ $(document).ready(function () {
         TweenMax.to(image, 3, {scale: 1});
     }
 
-    const product = $('.product');
+    // handling product card hover effect
     product.mouseenter(function () {
         cardMouseEnter($(this));
     });

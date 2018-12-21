@@ -17,7 +17,7 @@ class Post(models.Model):
         ordering = ['-creation_date']
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse('post-detail', args=[str(self.id)])
@@ -26,13 +26,14 @@ class Post(models.Model):
 class PostParagraph(models.Model):
     """"""
     post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Пост', related_name='paragraphs')
-    image = models.ImageField(upload_to='blog/', verbose_name='Изображение', blank=True, null=True)
     title = models.CharField(max_length=500, null=True, blank=True, verbose_name='Подзаголовок')
     text = models.TextField(null=True, blank=True, verbose_name='Текст')
+    position = models.IntegerField(default=1, verbose_name='Позиция')
 
     class Meta:
         verbose_name = 'Параграф'
         verbose_name_plural = 'Параграфы'
+        ordering = ['position']
 
     def __str__(self):
         return self.title

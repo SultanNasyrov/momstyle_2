@@ -1,8 +1,29 @@
 $(document).ready(function () {
+
+    // variables
+    const sizeButton = $('.size');
+    const product = $('.product');
+    const sizesLayout = $('.sizes-table-layout');
+
+    // launch product image zoom/galery plugin
     $('.sp-wrap').smoothproducts();
 
+    // card hover effect functions
+    function cardMouseEnter(card) {
+        let imageCaption = card.find('.image-caption');
+        let image = card.find('.main-img');
+        TweenMax.to(imageCaption, 0.5, {opacity: 1});
+        TweenMax.to(image, 3, {scale: 1.3});
+    }
+
+    function cardMouseLeave(card) {
+        let imageCaption = card.find('.image-caption');
+        let image = card.find('img');
+        TweenMax.to(imageCaption, 0.5, {opacity: 0});
+        TweenMax.to(image, 3, {scale: 1});
+    }
+
     // handling product size selecting
-    let sizeButton = $('.size');
     sizeButton.click(function () {
         $(this).toggleClass('chosen');
         $(this).siblings().removeClass('chosen');
@@ -33,7 +54,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 console.log("Success");
-                $('.cart-items-number').text(response['items'])
+                $('.cart-items-number').text(response['items']);
+                sizeButton.removeClass('chosen');
             },
             error: function () {
                 console.log('Error');
@@ -41,21 +63,7 @@ $(document).ready(function () {
         });
     });
 
-    function cardMouseEnter(card) {
-        let imageCaption = card.find('.image-caption');
-        let image = card.find('.main-img');
-        TweenMax.to(imageCaption, 0.5, {opacity: 1});
-        TweenMax.to(image, 3, {scale: 1.3});
-    }
-
-    function cardMouseLeave(card) {
-        let imageCaption = card.find('.image-caption');
-        let image = card.find('img');
-        TweenMax.to(imageCaption, 0.5, {opacity: 0});
-        TweenMax.to(image, 3, {scale: 1});
-    }
-
-    const product = $('.product');
+    // recommendation product cards hover effect handling
     product.mouseenter(function () {
         cardMouseEnter($(this));
     });
@@ -63,8 +71,7 @@ $(document).ready(function () {
         cardMouseLeave($(this))
     });
 
-    const sizesLayout = $('.sizes-table-layout');
-
+    // handling size table
     $('.sizes-table-link').click(function (e) {
         e.preventDefault();
         sizesLayout.css('display', 'block');

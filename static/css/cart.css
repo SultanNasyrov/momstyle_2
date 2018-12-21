@@ -1,5 +1,5 @@
 .navigation{
-    background-color: grey;
+    background-color: #191919;
 }
 
 .header{
@@ -45,6 +45,7 @@
 
 .cart-items-container{
     grid-column: span 9;
+    min-height: 300px;
 }
 
 .cart-item{
@@ -234,4 +235,39 @@
 .order-form{
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .cart{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header h1{
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .header{
+        font-size: 1.5rem;
+    }
+
+    .cart{
+        padding: 1rem;
+    }
+
+    .cart-items-container{
+        min-height: 200px;
+    }
+
+    .cart-item{
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    .header{
+        font-size: 0.7rem;
+    }
 }

@@ -10,8 +10,8 @@ class BannerAdmin(admin.ModelAdmin):
 @admin.register(IconsPack)
 class IconsPackAdmin(admin.ModelAdmin):
     fieldsets = (
-        ('Базовые', {'fields': ('cart', 'up', 'like')} ),
-        ('Соц. сети', {'fields': ('vk', 'instagram')} ),
+        ('Базовые', {'fields': ('cart', 'up', 'like', 'like_white', 'burger')}),
+        ('Соц. сети', {'fields': ('vk', 'instagram')}),
         ('Подвал', {'fields': ('footer_phone', 'footer_email', 'footer_address', 'footer_time')} ),
     )
 

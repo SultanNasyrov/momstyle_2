@@ -4,7 +4,6 @@
 
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -63,25 +62,38 @@
     </div><!-- end brand -->
 
 
-    <div class="page-links">
+    <div class="toggle-content">
+        <!-- containet for toggle content -->
+
+        <span class="close-toggle">x</span>
+
+        <div class="page-links">
         <!-- page links container -->
-        <a href="{% url 'index' %}" class="navigation-link">Главная</a>
-        <a href="{% url 'catalog' 'all' %}" class="navigation-link">Каталог</a>
-        <a href="{% url 'delivery' %}" class="navigation-link">Доставка</a>
-        <a href="{% url 'blog' %}" class="navigation-link">О нас</a>
-    </div><!-- end page links container -->
+            <a href="{% url 'index' %}" class="navigation-link">Главная</a>
+            <a href="{% url 'catalog' 'all' %}" class="navigation-link">Каталог</a>
+            <a href="{% url 'delivery' %}" class="navigation-link">Доставка</a>
+            <a href="{% url 'blog' %}" class="navigation-link">О нас</a>
+        </div><!-- end page links container -->
+
+        <div class="cart-link-container">
+            <!-- car links container -->
+
+            <!-- cart icon -->
+            <a href="{% url 'cart' %}">
+                <img src="{{ icons.cart.url }}" alt="">
+                <span class="cart-items-number">{{ cart_items_number }}</span>
+            </a>
+
+        </div><!-- end car links container -->
+
+    </div><!-- containet for toggle content -->
 
 
-    <div class="cart-link-container">
-        <!-- car links container -->
+    <div class="toggle-btn">
+        <!-- toggle button contaioner -->
+        <img class="burger" src="{{ icons.burger.url }}" alt="">
+    </div><!-- toggle button contaioner -->
 
-        <!-- cart icon -->
-        <a href="{% url 'cart' %}">
-            <img src="{{ icons.cart.url }}" alt="">
-            <span class="cart-items-number">{{ cart_items_number }}</span>
-        </a>
-
-    </div><!-- end car links container -->
 
 </section><!-- end navigation panel -->
 

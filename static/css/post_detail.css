@@ -1,6 +1,5 @@
 .page-header{
     position: relative;
-    width: 100%;
 
     height: 400px;
 
@@ -32,11 +31,20 @@
     top: 0; right: 0; bottom: 0; left: 0;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     background-color: rgba(0, 0, 0, 0.21);
+}
+
+.like{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.like img{
+    height: 64px;
 }
 
 .page-header-caption h1{
@@ -55,56 +63,69 @@
     align-items: center;
 }
 
-.section-header{
-    margin: 1rem 0;
-}
-
-.section-header h2{
-    font-family: 'Bebas book', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04rem;
-
-    color: rgba(0, 0, 0, 0.61);
-}
-
-.section-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    grid-gap: 1rem;
-}
-
-.info{
-    grid-column: span 3;
+.text{
+    padding: 3rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
 
-.info img{
-    height: 64px;
-}
+.paragraph .subtitle{
+    display: flex;
+    justify-content: center;
 
-.info span{
     font-family: 'Main narrow', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.045rem;
-    line-height: 2rem;
+    line-height: 3rem;
 
-    color: rgba(0, 0, 0, 0.61);
+    color: rgba(0, 0, 0, 0.6);
 }
 
-.info p{
+.paragraph p{
     font-family: 'Main light', sans-serif;
-    font-size: 0.7rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.045rem;
+    text-align: center;
 
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.51);
 }
+
+.ext{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ext span{
+    font-family: 'Main light', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.like{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Main light', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.like img{
+    height: 16px;
+    margin-right: 0.1rem;
+}
+
 @media (max-width: 900px){
     .page-header-caption h1{
         font-size: 3.5rem;
@@ -119,6 +140,10 @@
     .page-header-caption h1{
         font-size: 2.5rem;
     }
+
+    .text{
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 430px){
@@ -130,3 +155,4 @@
         font-size: 1.5rem;
     }
 }
+

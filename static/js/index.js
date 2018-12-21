@@ -1,17 +1,18 @@
 $(document).ready(function () {
-    $(function() {
-        $('.slide').slide();
-	});
 
+    // variables
     const category = $('.category');
+    const product = $('.product');
+    const look = $('.look');
+    const catalogBtn = $('.catalog-btn');
 
+    // card animation functions
     function cardMouseEnter(card) {
         let imageCaption = card.find('.image-caption');
         let image = card.find('.main-img');
         TweenMax.to(imageCaption, 0.5, {opacity: 1});
         TweenMax.to(image, 3, {scale: 1.3});
     }
-
     function cardMouseLeave(card) {
         let imageCaption = card.find('.image-caption');
         let image = card.find('img');
@@ -19,6 +20,20 @@ $(document).ready(function () {
         TweenMax.to(image, 3, {scale: 1});
     }
 
+     // navigation panel color handling function
+    window.addEventListener('scroll', function (e) {
+        let nav = document.querySelector('.navigation');
+        if (document.documentElement.scrollTop || document.body.scrollTop > window.innerHeight) {
+                TweenMax.to(nav, 1, {backgroundColor: '#191919'})
+            } else {
+                TweenMax.to(nav, 1, {backgroundColor: 'transparent'})
+            }
+    });
+
+    // carousel launch
+    $(function() { $('.slide').slide(); });
+
+    // carousel card hover effect handling
     category.mouseenter(function () {
         cardMouseEnter($(this));
     });
@@ -26,7 +41,7 @@ $(document).ready(function () {
         cardMouseLeave($(this));
     });
 
-    const product = $('.product');
+    // product card hover effect handling
     product.mouseenter(function () {
         cardMouseEnter($(this));
     });
@@ -34,7 +49,7 @@ $(document).ready(function () {
         cardMouseLeave($(this))
     });
 
-    const look = $('.look');
+    // look card hover effect handling
     look.mouseenter(function () {
         cardMouseEnter($(this))
     });
@@ -42,7 +57,7 @@ $(document).ready(function () {
         cardMouseLeave($(this))
     });
 
-    const catalogBtn = $('.catalog-btn');
+    // catalog btn hover effect handling
     catalogBtn.mouseenter(function () {
         TweenMax.to($(this), 0.5, {backgroundColor: 'rgba(0, 0, 0, 0.6)'});
     });

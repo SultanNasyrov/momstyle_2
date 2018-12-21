@@ -1,11 +1,12 @@
 $(document).ready(function () {
 
-    let total = $('.total');
-    let itemsNumber = $('.cart-items-number');
-    let select = $('.quantity-select');
-    let itemsContainer = $('.cart-items-container');
-    let orderLayout = $('.order-form-layout');
-    let orderButton = $('.make-order');
+    // variables
+    const total = $('.total');
+    const itemsNumber = $('.cart-items-number');
+    const select = $('.quantity-select');
+    const itemsContainer = $('.cart-items-container');
+    const orderLayout = $('.order-form-layout');
+    const orderButton = $('.make-order');
 
     function make_item_key(element){
         let name = element.siblings('.name').text();

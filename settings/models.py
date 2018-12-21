@@ -73,8 +73,10 @@ class IconsPack(models.Model):
     instagram = models.FileField(upload_to='icons/', verbose_name='Инстаграм', null=True, blank=True)
     cart = models.FileField(upload_to='icons/', verbose_name='Корзина', null=True, blank=True)
     up = models.FileField(upload_to='icons/', verbose_name='Вверх', null=True, blank=True)
+    burger = models.FileField(upload_to='icons/', verbose_name='Бургер', null=True, blank=True)
 
     like = models.FileField(upload_to='icons/', verbose_name='Сердечко(like)', null=True, blank=True)
+    like_white = models.FileField(upload_to='icons/', verbose_name='Сердечко(белое)', null=True, blank=True)
 
 
     # footer
